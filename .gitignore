@@ -7,6 +7,10 @@
 /storage/*.key
 /storage/pail
 /vendor
+/bootstrap/cache
+.env.*
+.idea
+.DS_Store
 .env
 .env.backup
 .env.production
