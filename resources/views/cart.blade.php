@@ -41,25 +41,25 @@
                                 <input type="text" id="customer-address" placeholder="Введите адрес доставки">
                             </div>
 
-                            <p>Способ оплаты:</p>
-                            <div class="radio-group">
-                                <label>
-                                    <input type="radio" name="payment_option" value="cash" checked>
-                                    <span>Наличный расчет в точке самовывоза</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="payment_option" value="card">
-                                    <span>Безналичный расчет картой</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="payment_option" value="kaspi_qr">
-                                    <span>Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="payment_option" value="remote">
-                                    <span>Удаленная оплата</span>
-                                </label>
-                            </div>
+{{--                            <p>Способ оплаты:</p>--}}
+{{--                            <div class="radio-group">--}}
+{{--                                <label>--}}
+{{--                                    <input type="radio" name="payment_option" value="cash" checked>--}}
+{{--                                    <span>Наличный расчет в точке самовывоза</span>--}}
+{{--                                </label>--}}
+{{--                                <label>--}}
+{{--                                    <input type="radio" name="payment_option" value="card">--}}
+{{--                                    <span>Безналичный расчет картой</span>--}}
+{{--                                </label>--}}
+{{--                                <label>--}}
+{{--                                    <input type="radio" name="payment_option" value="kaspi_qr">--}}
+{{--                                    <span>Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)</span>--}}
+{{--                                </label>--}}
+{{--                                <label>--}}
+{{--                                    <input type="radio" name="payment_option" value="remote">--}}
+{{--                                    <span>Удаленная оплата</span>--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
 
                             <button id="checkout" class="btn-checkout">Оформить заказ</button>
                         </div>

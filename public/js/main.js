@@ -303,8 +303,8 @@ function attachEventListeners() {
         let phone = document.getElementById("customer-phone").value.trim();
         let address = document.getElementById("customer-address").value.trim();
         let email = document.getElementById("customer-email").value.trim();
-        let payment_option = document.querySelector('input[name="payment_option"]:checked')?.value || "";
-        let cart = getCart();
+        // let payment_option = document.querySelector('input[name="payment_option"]:checked')?.value || "";
+        let cart = getCart();php -vpp
 
         if (!name || !phone) {
             alert("Пожалуйста, введите ФИО и номер телефона!");
@@ -321,7 +321,7 @@ function attachEventListeners() {
             phone: phone,
             address: address,
             email: email,
-            payment_option: payment_option,
+            // payment_option: payment_option,
             items: cart.map(item => ({
                 id: item.id,
                 quantity: item.quantity

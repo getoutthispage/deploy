@@ -25,20 +25,20 @@ class CartController extends Controller
             'phone' => 'required|string|max:20',
             'address' => 'required|string|max:255',
             'email' => 'required|string|max:255',
-            'payment_option' => 'required|string|max:255',
+//            'payment_option' => 'required|string|max:255',
             'items' => 'required|array',
             'items.*.id' => 'required|integer|exists:products,id',
             'items.*.quantity' => 'required|integer|min:1',
         ]);
 
-        $paymentOptions = [
-            'cash' => 'Наличный расчет в точке самовывоза',
-            'card' => 'Безналичный расчет картой',
-            'kaspi_qr' => 'Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)',
-            'remote' => 'Удаленная оплата',
-        ];
+//        $paymentOptions = [
+//            'cash' => 'Наличный расчет в точке самовывоза',
+//            'card' => 'Безналичный расчет картой',
+//            'kaspi_qr' => 'Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)',
+//            'remote' => 'Удаленная оплата',
+//        ];
 
-        $comment = $paymentOptions[$data['payment_option']] ?? 'Неизвестный способ оплаты';
+//        $comment = $paymentOptions[$data['payment_option']] ?? 'Неизвестный способ оплаты';
         $productIds = collect($data['items'])->pluck('id');
         $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
         $address = $data['address'];
@@ -109,7 +109,7 @@ class CartController extends Controller
             'positions' => $positions, // Передаем массив позиций
             'shipmentAddressFull' => [
                 'street' => $address,
-                'comment' => $comment,
+//                'comment' => $comment,
             ],
 //            "attributes" => [
 //                "meta" => [
