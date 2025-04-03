@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Disallow: /cart
+Disallow: /checkout
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /password-reset
+Disallow: /search
+Disallow: /api/
+Disallow: /_debugbar/
+Disallow: /*?*
+
+Sitemap: https://indigoshop.kz/sitemap.xml

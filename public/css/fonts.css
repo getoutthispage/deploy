@@ -3,18 +3,21 @@
     src: url('../fonts/FixelText/FixelText-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Fixel Text SemiBold';
     src: url('../fonts/FixelText/FixelText-SemiBold.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Fixel Text Medium';
     src: url('../fonts/FixelText/FixelText-Medium.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -22,4 +25,5 @@
     src: url('../fonts/FixelDisplay/FixelDisplay-Medium.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }

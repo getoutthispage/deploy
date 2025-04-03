@@ -4,12 +4,15 @@
 @section('content')
     <section class="cart-section">
         <div class="container">
+            <h1>При заказе от 20,000 -20% к сумме заказа!</h1>
             <div class="cart-page__wrapper">
                 <div class="cart-page__item">
                     <table class="cart-table">
                         <tbody id="cart-items">
                         </tbody>
                     </table>
+                    <div id="cart-total" class="cart-total"></div>
+
                 </div>
                 <div class="cart-page__checkout">
                     <div class="cart-page__checkout-item">
@@ -23,45 +26,32 @@
                             <label for="customer-email">Email:</label>
                             <input type="email" id="customer-email" placeholder="Введите Email">
 
-                            <p>Выберите способ получения заказа:</p>
+			    <label for="customer-address">Адрес доставки:</label>
+                            <input type="text" id="customer-address" placeholder="Введите ваш адрес">
+
+
+			      <p>Способ оплаты:</p>
                             <div class="radio-group">
                                 <label>
-                                    <input type="radio" name="delivery_option" value="pickup">
-                                    <span>Самовывоз гагарина 186/1</span>
+                                    <input type="radio" name="payment_option" value="cash" checked>
+                                    <span>Наличный расчет в точке самовывоза</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="delivery_option" value="delivery" checked>
-                                    <span>Доставка</span>
+                                    <input type="radio" name="payment_option" value="card">
+                                    <span>Безналичный расчет картой</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="payment_option" value="kaspi_qr">
+                                    <span>Оплата Kaspi QR (рассрочка, red, gold)</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="payment_option" value="remote">
+                                    <span>Удаленная оплата</span>
                                 </label>
                             </div>
 
-                            <!-- Поле для адреса доставки/самовывоза -->
-                            <div id="delivery-address-container">
-                                <label for="customer-address">Адрес доставки:</label>
-                                <input type="text" id="customer-address" placeholder="Введите адрес доставки">
-                            </div>
-
-{{--                            <p>Способ оплаты:</p>--}}
-{{--                            <div class="radio-group">--}}
-{{--                                <label>--}}
-{{--                                    <input type="radio" name="payment_option" value="cash" checked>--}}
-{{--                                    <span>Наличный расчет в точке самовывоза</span>--}}
-{{--                                </label>--}}
-{{--                                <label>--}}
-{{--                                    <input type="radio" name="payment_option" value="card">--}}
-{{--                                    <span>Безналичный расчет картой</span>--}}
-{{--                                </label>--}}
-{{--                                <label>--}}
-{{--                                    <input type="radio" name="payment_option" value="kaspi_qr">--}}
-{{--                                    <span>Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)</span>--}}
-{{--                                </label>--}}
-{{--                                <label>--}}
-{{--                                    <input type="radio" name="payment_option" value="remote">--}}
-{{--                                    <span>Удаленная оплата</span>--}}
-{{--                                </label>--}}
-{{--                            </div>--}}
-
                             <button id="checkout" class="btn-checkout">Оформить заказ</button>
+
                         </div>
 
 

@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+class CartController extends Controller
+{
+    public function index(Request $request)
+    {
+        $title = 'Корзина покупок Indigoshop.kz';
+        $description = 'Просмотрите товары в вашей корзине и продолжите покупки. Доставка и возврат товаров по Алматы.';
+        $keywords = 'корзина покупок, интернет-магазин, Алматы';
+
+        return view('cart', compact('title', 'description', 'keywords'));
+    }
+
+    public function checkout(Request $request)
+  {
+        // Логируем входящие данные
+        \Log::info('Received order data:', $request->all());
+
+        // Валидация входящих данных
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:15',
+            'address' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'items' => 'required|array',
+            'items.*.id' => 'required|integer|exists:products,id',
+            'items.*.quantity' => 'required|integer|min:1',
+        ]);
+
+
+           }
+}

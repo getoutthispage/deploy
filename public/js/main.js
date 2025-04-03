@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 20,
         slidesPerGroup: 1,
         breakpoints: {
-            320: {slidesPerView: 2, spaceBetween: 10},
-            1024: {slidesPerView: 5, spaceBetween: 20},
+            320: { slidesPerView: 2, spaceBetween: 10 },
+            1024: { slidesPerView: 5, spaceBetween: 20 },
         },
     });
     new Swiper(".banner-swiper", {
-        slidesPerView: 1, // По умолчанию 1 баннер
+        slidesPerView: 1,
         spaceBetween: 20,
         autoplay: {
             delay: 3000,
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     new Swiper(".review-swiper", {
-        slidesPerView: 1, // По умолчанию 1 баннер
+        slidesPerView: 1,
         spaceBetween: 20,
         autoplay: {
             delay: 3000,
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     new Swiper(".swiper-container", {
-        slidesPerView: 4, // По умолчанию 1 баннер
+        slidesPerView: 4,
         spaceBetween: 20,
         autoplay: {
             delay: 3000,
@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-// product cart image-swiper logic
 document.querySelectorAll('.product-thumbnail').forEach(thumbnail => {
     thumbnail.addEventListener('click', function () {
         const index = this.getAttribute('data-index');
@@ -103,7 +102,7 @@ document.querySelectorAll('.product-thumbnail').forEach(thumbnail => {
     });
 });
 
-// cart
+// CART
 
 let cartCount = 0;
 
@@ -131,7 +130,6 @@ function showAutoAlert(message) {
 
     setTimeout(() => {
         alertDiv.style.opacity = '0';
-        // После завершения анимации скрываем блок полностью
         setTimeout(() => {
             alertDiv.style.display = 'none';
         }, 500);
@@ -139,46 +137,20 @@ function showAutoAlert(message) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const deliveryOptions = document.getElementsByName('delivery_option');
-    const addressInput = document.getElementById('customer-address');
-
-    function updateAddressField() {
-        const selected = document.querySelector('input[name="delivery_option"]:checked').value;
-        if (selected === 'delivery') {
-            addressInput.value = "";
-            addressInput.disabled = false; // разрешаем ввод адреса
-            addressInput.placeholder = "Введите адрес доставки";
-        } else {
-            addressInput.value = "самовывоз";
-            addressInput.disabled = true; // запрещаем редактирование
-        }
-    }
-
-    deliveryOptions.forEach(option => {
-        option.addEventListener('change', updateAddressField);
-    });
-
-    // Инициализация при загрузке страницы
-    updateAddressField();
-});
-document.addEventListener("DOMContentLoaded", function () {
     updateCartCount();
     document.querySelectorAll(".cart-btn").forEach(button => {
         button.addEventListener("click", function (event) {
-            event.preventDefault(); // Останавливаем переход по ссылке
-
-            // Получаем данные из атрибутов data
+            event.preventDefault();
             let productId = parseInt(this.dataset.id);
             let productName = this.dataset.name;
             let productPrice = parseFloat(this.dataset.price);
             let productImage = this.dataset.image;
             showAutoAlert("Товар добавлен в корзину");
-            // Вызываем функцию добавления товара в корзину
             addToCart(productId, productName, productPrice, productImage);
         });
     });
 
-    renderCart(); // Отображаем корзину при загрузке страницы
+    renderCart();
 });
 
 function getCart() {
@@ -196,7 +168,7 @@ function addToCart(id, name, price, image) {
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({id, name, price, image, quantity: 1});
+        cart.push({ id, name, price, image, quantity: 1 });
     }
 
     saveCart(cart);
@@ -208,42 +180,58 @@ function addToCart(id, name, price, image) {
 function renderCart() {
     let cart = getCart();
     let cartTable = document.getElementById("cart-items");
+    let totalContainer = document.getElementById("cart-total");
 
-    if (!cartTable) return;
+    if (!cartTable || !totalContainer) return;
 
     cartTable.innerHTML = "";
-
+    let totalAmount = 0;
     if (cart.length === 0) {
         cartTable.innerHTML = `<tr><td colspan="4">Корзина пуста</td></tr>`;
+        totalContainer.innerHTML = "Итого: 0 ₸";
         return;
     }
 
     cart.forEach(item => {
+        let itemPrice = parseFloat(item.price) || 0;
+        let itemTotalPrice = itemPrice * (parseInt(item.quantity) || 1);
+        totalAmount += itemTotalPrice;
+
         let row = document.createElement("tr");
         row.innerHTML = `
             <td>
-                <img class="cart-item__img" src="/product/${item.image}" alt="${item.name}"> <div class="title-cart-name">${item.name}</div>
+                <img class="cart-item__img" src="/product/${item.image}" alt="${item.name}">
+                <div class="title-cart-name">${item.name}</div>
             </td>
-            <td>${item.totalPrice || item.price} ₸</td> <!-- Выводим актуальную цену -->
+            <td>${itemTotalPrice.toLocaleString()} ₸</td> 
             <td>
                 <div class="quantity-wrapper">
-                   <button class="btn-decrease" data-id="${item.id}">
-    <i class="fas fa-minus"></i>
-</button>
-<span class="quantity">${item.quantity}</span>
-<button class="btn-increase" data-id="${item.id}">
-    <i class="fas fa-plus"></i>
-</button>
-<button class="btn-remove" data-id="${item.id}">
-    <i class="fas fa-trash"></i>
-</button>
+                    <button class="btn-decrease" data-id="${item.id}">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button class="btn-increase" data-id="${item.id}">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="btn-remove" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
+            </td>
         `;
         cartTable.appendChild(row);
     });
-
+    let discount = totalAmount >= 20000 ? totalAmount * 0.2 : 0;
+    let finalAmount = totalAmount - discount;
+    totalContainer.innerHTML = `
+        <p>Сумма: <span>${totalAmount.toLocaleString()} ₸</span></p>
+        ${discount > 0 ? `<p class="discount-text">Скидка 20%: <span>-${discount.toLocaleString()} ₸</span></p>` : ""}
+        <p class="final-total">Итого: <span>${finalAmount.toLocaleString()} ₸</span></p>
+    `;
     attachEventListeners();
 }
+
+
 
 function removeFromCart(id) {
     let cart = getCart().filter(item => item.id !== id);
@@ -257,7 +245,7 @@ function updateQuantity(id, change) {
     let cart = getCart().map(item => {
         if (item.id === id) {
             let newQuantity = item.quantity + change;
-            item.quantity = newQuantity > 0 ? newQuantity : 1; // Не даем уйти в 0
+            item.quantity = newQuantity > 0 ? newQuantity : 1;
             item.totalPrice = (item.price * item.quantity).toFixed(2);
         }
         return item;
@@ -301,10 +289,11 @@ function attachEventListeners() {
         event.preventDefault();
         let name = document.getElementById("customer-name").value.trim();
         let phone = document.getElementById("customer-phone").value.trim();
-        let address = document.getElementById("customer-address").value.trim();
         let email = document.getElementById("customer-email").value.trim();
-        // let payment_option = document.querySelector('input[name="payment_option"]:checked')?.value || "";
-        let cart = getCart();php -vpp
+        let address = document.getElementById("customer-address").value.trim();
+        let cart = getCart();
+        let selectedPayment = document.querySelector('input[name="payment_option"]:checked');
+        let paymentOptionText = selectedPayment ? selectedPayment.nextElementSibling.textContent.trim() : "";
 
         if (!name || !phone) {
             alert("Пожалуйста, введите ФИО и номер телефона!");
@@ -319,20 +308,21 @@ function attachEventListeners() {
         let orderData = {
             name: name,
             phone: phone,
-            address: address,
             email: email,
-            // payment_option: payment_option,
+            address: address,
+            payment_option: paymentOptionText,
             items: cart.map(item => ({
                 id: item.id,
                 quantity: item.quantity
             }))
         };
 
-        fetch("/checkout", {
+        fetch("/api/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+                "X-CSRF-TOKEN": document.querySelector('meta[name=\"csrf-token\"]').content,
+                "Accept": "application/json"
             },
             body: JSON.stringify(orderData)
         })
@@ -350,6 +340,7 @@ function attachEventListeners() {
                 console.error("Ошибка:", error);
                 alert("⚠ Не удалось оформить заказ!");
             });
+
     });
 
 }
@@ -368,7 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
         searchOverlay.classList.remove("active");
     });
 
-    // Закрытие поиска при клике вне блока
     document.addEventListener("click", function (event) {
         if (!searchOverlay.contains(event.target) && !searchButton.contains(event.target)) {
             searchOverlay.classList.remove("active");

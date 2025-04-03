@@ -34,20 +34,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="yandex-verification" content="2b5dc048071c0553" />
-    <script src="/js/swiper-bundle.min.js" defer></script>
-    <script src="/js/main.js" defer></script>
     <!-- Canonical для SEO -->
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/media.css')}}">
     <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css">
-    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 <body>
 <header>
@@ -62,8 +57,7 @@
                         <li class="header-top-list__item"><a href="{{route('feedback')}}">Контакты</a></li>
                         <li class="header-top-list__item"><a href="{{route('warranty')}}">Гарантия</a></li>
                     </ul>
-                    <a class="header-top-inst" href="https://www.instagram.com/indigoshop.kz/?hl=en">Наш инстаграм<i class="fa-brands fa-instagram"></i>
-                    </a>
+                    <a class="header-top-inst" href="https://www.instagram.com/indigoshop.kz/?hl=en">Наш инстаграмм</a>
                 </div>
 
             </div>
@@ -92,7 +86,7 @@
                         <li><a style="font-size: 20px;" href="{{url('/shop/everything-for-colorists/cups')}}">Чашки</a></li>
                         <li><a style="font-size: 20px;" href="{{url('/shop/accessories/Rugs-Coasters')}}">Коврики</a></li>
                         <li><a style="font-size: 20px;" href="{{url('/shop/сonsumables')}}">Расходники</a></li>
-                        <li><a style="font-size: 20px;" href="{{url('/shop/hair-care')}}">Уход за волосами</a></li>
+                        <li><a style="font-size: 20px;" href="{{url('/shop/tweezers')}}">Щипчики</a></li>
                         <li class="mobile-menu-list-line"></li>
 
                     </ul>
@@ -110,13 +104,13 @@
                 </div>
 
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('images/logo-indigoshop.webp')  }}" alt="logo">
+                    <img src="{{ asset('images/logo-indigoshop.png')  }}" alt="logo">
                 </a>
                 <div class="middle-icons">
 
                     <div class="login">
                         @if (Auth::check())
-                            <a href="{{ url('/dashboard') }}" class="icon-dashboard"><span
+                            <a href="{{ url('/dashboard') }}" class="icon-dashboard"> <span
                                     class="login-icon"></span></a>
                         @else
                             <div class="login-register">
@@ -172,7 +166,7 @@
                         <a class="menu-categories__link" href="{{url('/shop/сonsumables')}}">Расходники</a>
                     </li>
                     <li class="menu-categories__item">
-                        <a class="menu-categories__link" href="{{url('/shop/hair-care')}}">Уход за волосами</a>
+                        <a class="menu-categories__link" href="{{url('/shop/tweezers')}}">Щипчики</a>
                     </li>
                 </ul>
             </div>

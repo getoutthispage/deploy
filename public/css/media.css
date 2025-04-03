@@ -1,6 +1,16 @@
 @media (max-width: 767px) {
-    /* INDEX */
+    .products-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+
+
+    /* INDEX */
     .product-card img{
         width: 150px;
     }
@@ -27,7 +37,6 @@
     .main-banner .container {
         padding: 0 0 !important
     }
-
     .add-to-cart {
         display: none
     }
@@ -36,31 +45,20 @@
         display: flex;
         background-color: #fff
     }
-    .products-container .container{
-        padding: 0;
-        margin: 0;
-    }
     .icon-button img {
         width: 18px;
         height: 18px
     }
-    .product-title{
-        margin: 0;
-        padding: 0;
-    }
-
     .product-cart-bottom {
         margin-bottom: 0;
         display: flex;
         align-items: center;
         justify-content: space-between; /* Разносит элементы по краям */
         width: 100%;
-
     }
-    .buttons-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 10px; /* Отступ между кнопками */
+       /* video */
+       .video-section {
+        width: 100%; /* Делаем блок на всю ширину экрана */
     }
     /* PRODUCT PAGE */
     .product-page__wrapper {
@@ -173,15 +171,15 @@
         display: none;
     }
 
-    /*  BANNER SECTION */
-
-    .catalog {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0;
-    }
 
     /* CART PAGE */
     .radio-group label span {
         font-size: 12px;
     }
+
+    /* catalog-info */
+.catalog-info{
+    border-bottom: 1px solid #e6ebf0;
+    border-top: 1px solid #e6ebf0;
+}
 }

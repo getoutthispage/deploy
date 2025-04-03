@@ -1,6 +1,10 @@
 <?php
 
+
 namespace App\Http\Controllers;
+
+use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Validation\ValidationException;
 
 use App\Models\Product;
 use GuzzleHttp\Client;
@@ -18,37 +22,33 @@ class CartController extends Controller
         return view('cart', compact('title', 'description', 'keywords'));
     }
 
+
     public function checkout(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
-            'address' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-//            'payment_option' => 'required|string|max:255',
-            'items' => 'required|array',
-            'items.*.id' => 'required|integer|exists:products,id',
-            'items.*.quantity' => 'required|integer|min:1',
-        ]);
+        Log::info('Received order data:', $request->all()); // Логируем входные данные
 
-//        $paymentOptions = [
-//            'cash' => 'Наличный расчет в точке самовывоза',
-//            'card' => 'Безналичный расчет картой',
-//            'kaspi_qr' => 'Оплата Kaspi QR (kaspi gold, kaspi рассрочка, kaspi red)',
-//            'remote' => 'Удаленная оплата',
-//        ];
-
-//        $comment = $paymentOptions[$data['payment_option']] ?? 'Неизвестный способ оплаты';
-        $productIds = collect($data['items'])->pluck('id');
-        $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
-        $address = $data['address'];
+        try {
+            $validated = $request->validate([
+		'name' => 'required|string|max:255',
+    'phone' => 'required|string|max:20',
+    'address' => 'required|string|max:255',
+    'payment_option' => 'required|string|max:255',
+    'items' => 'required|array',
+    'items.*.id' => 'required|integer|exists:products,id',
+    'items.*.quantity' => 'required|integer|min:1',
+            ]);
+        } catch (ValidationException $e) {
+            Log::error('Validation failed:', $e->errors()); // Логируем ошибки
+            return response()->json(['success' => false, 'errors' => $e->errors()], 422);
+        }
+	$address = $validated['address'];
+	$payment_option = $validated['payment_option'];
+        $client = new Client();
         $counterpartyData = [
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
         ];
-        $client = new Client();
-
         $response = $client->post('https://api.moysklad.ru/api/remap/1.2/entity/counterparty', [
             'headers' => [
                 'Authorization' => 'Bearer ab8edcaafabcd9308789c8f135f7db96ee6b789c',
@@ -65,9 +65,13 @@ class CartController extends Controller
             Log::error('Ошибка при создании контрагента');
             return response()->json(['error' => 'Ошибка при создании контрагента'], 500);
         }
+        $productIds = collect($validated['items'])->pluck('id');
+        $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
+
         $positions = [];
-        foreach ($data['items'] as $item) {
+        foreach ($validated['items'] as $item) {
             $product = $products->get($item['id']);
+            Log::debug('Обрабатываем продукт:', ['id' => $item['id'], 'product' => $product]);
 
             if ($product) {
                 $metaHref = $product->meta_href;
@@ -88,10 +92,8 @@ class CartController extends Controller
                 Log::warning('Продукт не найден для ID: ' . $item['id']);
             }
         }
-        Log::info($address);
-        // Данные для создания заказа
         $orderData = [
-            'name' => $data['name'],
+            'name' => $validated['name'],
             'organization' => [
                 'meta' => [
                     'href' => 'https://api.moysklad.ru/api/remap/1.2/entity/organization/0460e57b-217e-11ee-0a80-08c7002536bd',
@@ -107,40 +109,35 @@ class CartController extends Controller
                 ],
             ],
             'positions' => $positions, // Передаем массив позиций
-            'shipmentAddressFull' => [
-                'street' => $address,
-//                'comment' => $comment,
-            ],
-//            "attributes" => [
-//                "meta" => [
-//                    "href" => "https://api.moysklad.ru/api/remap/1.2/entity/product/metadata/attributes/0ae972f0-2951-11ef-ac12-000e00000001",
-//                    "type" => "attributemetadata",
-//                    "mediaType" => "application/json",
-//                ],
-
-//            ]
+'shipmentAddressFull' => [
+		'comment' => "$address\n$payment_option",
+            ]
         ];
+        try {
+            $responseOrder = $client->post('https://api.moysklad.ru/api/remap/1.2/entity/customerorder', [
+                'headers' => [
+                    'Authorization' => 'Bearer ab8edcaafabcd9308789c8f135f7db96ee6b789c',
+                    'Accept-Encoding' => 'gzip',
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => $orderData,
+                'verify' => false,
+            ]);
 
-        // Отправка заказа в МойСклад
-        $responseOrder = $client->post('https://api.moysklad.ru/api/remap/1.2/entity/customerorder', [
-            'headers' => [
-                'Authorization' => 'Bearer ab8edcaafabcd9308789c8f135f7db96ee6b789c',
-                'Accept-Encoding' => 'gzip',
-                'Content-Type' => 'application/json',
-            ],
-            'json' => $orderData,
-            'verify' => false,
-        ]);
-
-        // Получаем ответ
-        $orderBody = json_decode($responseOrder->getBody(), true);
-        $orderHref = $orderBody['meta']['href'] ?? null;
-
-        if ($orderHref) {
-            Log::info('Заказ успешно создан: ' . $orderHref);
-            return response()->json(['success' => true, 'order_href' => $orderHref]);
+            Log::info('Response from MoySklad', [
+                'status' => $responseOrder->getStatusCode(),
+                'body' => $responseOrder->getBody()->getContents()
+            ]);
+        } catch (GuzzleException $e) {
+            Log::error('MoySklad API error', [
+                'error' => $e->getMessage()
+            ]);
         }
-        Log::error('Ошибка при создании заказа: ' . json_encode($orderBody, JSON_UNESCAPED_UNICODE));
-        return response()->json(['error' => 'Ошибка при создании заказа'], 500);
+
+
+        return response()->json(['success' => true, 'message' => 'Заказ успешно оформлен']);
+
     }
+
+
 }

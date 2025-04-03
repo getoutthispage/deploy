@@ -12,6 +12,10 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WarrantyPageController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session; // Импортируем Session
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 
@@ -27,7 +31,6 @@ Route::get('/shop/{slug1}/{slug2?}/{slug3?}', [CatalogController::class, 'show']
 
 // Cart page
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/checkout', [CartController::class, 'checkout']);
 
 // Delivery page
 Route::get('/delivery', [DeliveryPageController::class, 'index'])->name('delivery');
@@ -53,26 +56,17 @@ Route::middleware([
 
 
 
-Route::get('/robots.txt', function () {
-    $content = app()->environment('production') ? <<<EOT
-Disallow: /cart
-Disallow: /checkout
-Disallow: /admin
-Disallow: /dashboard
-Disallow: /password-reset
-Disallow: /search
-Disallow: /api/
-Disallow: /_debugbar/
-Disallow: /*?*
-Allow: /
-Sitemap: http://192.168.0.4:8080/sitemap.xml
-EOT
-        : "User-agent: *\nDisallow: /";
 
-    return response($content)->header('Content-Type', 'text/plain');
-});
 Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+});
+
+
+// lang
+
+Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
+    Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 });
