@@ -1,22 +1,40 @@
 @media (max-width: 767px) {
-    .products-container{
+    .products-container {
         width: 100%;
         margin: 0;
         padding: 0;
     }
+
     .catalog {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* FEATURES SECTION  */
 
+    .features-section {
+        grid-template-columns: 1fr;
+    }
 
+    .feature-box {
+        padding: 20px 15px;
+    }
+
+    .feature-box i {
+        font-size: 32px;
+    }
+
+    .feature-box p {
+        font-size: 0.95rem;
+    }
     /* INDEX */
-    .product-card img{
+    .product-card img {
         width: 150px;
     }
-    .prod-bnr img{
+
+    .prod-bnr img {
         width: 100%;
     }
+
     .categories__item {
         max-width: 100%;
         flex: 1 1 100%
@@ -37,6 +55,7 @@
     .main-banner .container {
         padding: 0 0 !important
     }
+
     .add-to-cart {
         display: none
     }
@@ -45,29 +64,37 @@
         display: flex;
         background-color: #fff
     }
+
     .icon-button img {
         width: 18px;
         height: 18px
     }
+
     .product-cart-bottom {
         margin-bottom: 0;
         display: flex;
         align-items: center;
-        justify-content: space-between; /* Разносит элементы по краям */
+        justify-content: space-between;
+        /* Разносит элементы по краям */
         width: 100%;
     }
-       /* video */
-       .video-section {
-        width: 100%; /* Делаем блок на всю ширину экрана */
+
+    /* video */
+    .video-section {
+        width: 100%;
+        /* Делаем блок на всю ширину экрана */
     }
+
     /* PRODUCT PAGE */
     .product-page__wrapper {
-        flex-direction: column; /* Меняем направление на столбец */
+        flex-direction: column;
+        /* Меняем направление на столбец */
     }
 
     /* CART PAGE */
     .cart-page__wrapper {
-        flex-direction: column; /* Меняем направление на столбец */
+        flex-direction: column;
+        /* Меняем направление на столбец */
         margin-bottom: 20px;
     }
 
@@ -87,7 +114,8 @@
     /* PRODUCT PAGE */
     .product-page__image,
     .product-page__content {
-        width: 100%; /* Задаем ширину 100% для обоих элементов */
+        width: 100%;
+        /* Задаем ширину 100% для обоих элементов */
     }
 
     /* SEARCH */
@@ -178,8 +206,8 @@
     }
 
     /* catalog-info */
-.catalog-info{
-    border-bottom: 1px solid #e6ebf0;
-    border-top: 1px solid #e6ebf0;
-}
+    .catalog-info {
+        border-bottom: 1px solid #e6ebf0;
+        border-top: 1px solid #e6ebf0;
+    }
 }

@@ -358,30 +358,61 @@
         </div>
     </div>
 
+
+<div class="container">
+    <div class="features-section">
+        <div class="feature-box">
+            <i class="fas fa-truck"></i>
+            <p><strong>Оперативная доставка:</strong><br>Доставляем по Алматы и Казахстану. Упаковываем качественно и с любовью.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-shield-alt"></i>
+            <p><strong>Гарантия на товар:</strong><br>Предоставляем гарантию на приобретенные в нашем магазине товары.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-globe"></i>
+            <p><strong>Прямые поставки:</strong><br>Сотрудничаем с поставщиками из разных стран и выбираем только лучший товар.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-credit-card"></i>
+            <p><strong>Рассрочка на товары:</strong><br>Предоставляем беспроцентную рассрочку, кредит или KASPI RED.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-calendar-check"></i>
+            <p><strong>Работаем с 2019 года:</strong><br>Наши менеджеры помогут с выбором товаров и грамотно проконсультируют.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-box"></i>
+            <p><strong>Отправили более 3000 заказов:</strong><br>Сотни довольных клиентов. Мы заботимся о нашей репутации.</p>
+        </div>
+    </div>
+</div>
+
+
     <script type="application/ld+json">
-                                                        {
-                                                          "@context": "https://schema.org",
-                                                          "@type": "ItemList",
-                                                          "name": "Популярные товары",
-                                                          "itemListElement": [
-                                                        @foreach ($products as $index => $product)
-                                                                {
-                                                                  "@type": "ListItem",
-                                                                  "position": {{ $index + 1 }},
-                                                                "url": "{{ route('product.show', $product->slug) }}",
-                                                                "name": "{{ $product->name }}",
-                                                                "image": "{{ asset('storage/' . explode(',', $product->images)[0]) }}",
-                                                                "offers": {
-                                                                  "@type": "Offer",
-                                                                  "priceCurrency": "KZT",
-                                                                  "price": "{{ $product->sale_price ?? $product->price }}",
-                                                                  "availability": "{{ $product->quantity ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}"
-                                                                }
-                                                              }@if(!$loop->last)
-                                                                ,
-                                                            @endif
-                                                        @endforeach
-                                                        ]
-                                                      }
-                                                    </script>
+                                                            {
+                                                              "@context": "https://schema.org",
+                                                              "@type": "ItemList",
+                                                              "name": "Популярные товары",
+                                                              "itemListElement": [
+                                                            @foreach ($products as $index => $product)
+                                                                    {
+                                                                      "@type": "ListItem",
+                                                                      "position": {{ $index + 1 }},
+                                                                    "url": "{{ route('product.show', $product->slug) }}",
+                                                                    "name": "{{ $product->name }}",
+                                                                    "image": "{{ asset('storage/' . explode(',', $product->images)[0]) }}",
+                                                                    "offers": {
+                                                                      "@type": "Offer",
+                                                                      "priceCurrency": "KZT",
+                                                                      "price": "{{ $product->sale_price ?? $product->price }}",
+                                                                      "availability": "{{ $product->quantity ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}"
+                                                                    }
+                                                                  }@if(!$loop->last)
+                                                                    ,
+                                                                @endif
+                                                            @endforeach
+                                                            ]
+                                                          }
+                                                        </script>
 @endsection
