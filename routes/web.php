@@ -9,6 +9,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SocialProgramPageController;
 use App\Http\Controllers\WarrantyPageController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,8 @@ Route::get('/about', [AboutPageController::class, 'index'])->name('about');
 Route::get('/feedback', [FeedbackPageController::class, 'index'])->name('feedback');
 // warranty page
 Route::get('/warranty', [WarrantyPageController::class, 'index'])->name('warranty');
+// social program page
+Route::get('/social-program', [SocialProgramPageController::class, 'index'])->name('social-program');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 

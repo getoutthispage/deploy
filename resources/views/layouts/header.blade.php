@@ -66,6 +66,8 @@
                                     href="{{ route('feedback') }}">{{ __('messages.menu.contacts') }}</a></li>
                             <li class="header-top-list__item"><a
                                     href="{{ route('warranty') }}">{{ __('messages.menu.warranty') }}</a></li>
+                                    <li class="header-top-list__item"><a style="color: #B1192E;"
+                                    href="{{ route('social-program') }}">{{ __('messages.menu.social-program') }}</a></li>
                         </ul>
                         </ul>
                         <a class="header-top-inst" href="https://www.instagram.com/indigoshop.kz/?hl=en">
@@ -93,6 +95,9 @@
                                     href="{{ route('feedback') }}">{{ __('messages.menu.contacts') }}</a></li>
                             <li><a style="color: #ff5252;"
                                     href="{{ route('warranty') }}">{{ __('messages.menu.warranty') }}</a></li>
+                            <li class="mobile-menu-list-line"></li>
+                            <li><a style="color: #ff5252;"
+                                    href="{{ route('social-program') }}">{{ __('messages.menu.social-program') }}</a></li>
                             <li class="mobile-menu-list-line"></li>
                             <li><a style="font-size: 20px;"
                                     href="{{ url('/shop/everything-for-hairdressers/machines') }}">{{ __('messages.categories.machines') }}</a>

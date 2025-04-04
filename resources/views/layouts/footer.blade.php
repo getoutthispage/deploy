@@ -23,6 +23,8 @@
                         <li class="footer-list__item"><a href="{{ route('about') }}">{{ __('messages.footer.about') }}</a></li>
                         <li class="footer-list__item"><a href="{{ route('feedback') }}">{{ __('messages.footer.contacts') }}</a></li>
                         <li class="footer-list__item"><a href="{{ route('warranty') }}">{{ __('messages.footer.warranty') }}</a></li>
+                        <li class="footer-list__item"><a style="color: #B1192E;" href="{{ route('social-program') }}">{{ __('messages.footer.social-program') }}</a></li>
+
                     </ul>
                 </div>
                 <div class="footer__top-item footer__top-item-social">

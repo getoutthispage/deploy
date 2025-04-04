@@ -25,6 +25,8 @@ return [
         'about' => 'О магазине',
         'contacts' => 'Контакты',
         'warranty' => 'Гарантия',
+        'social-program' => 'Наша Социальная программа'
+
     ],
     'links' => [
         'training' => 'Обучение',
@@ -45,5 +47,6 @@ return [
         'warranty' => 'Обмен и гарантия',
         'change_language' => 'Сменить язык:',
         'rights_reserved' => 'Все права защищены.',
+        'social-program' => 'Наша Социальная программа'
     ],
 ];
