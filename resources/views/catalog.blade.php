@@ -14,16 +14,16 @@
                 <p>Показано товаров: {{ count($products) }}</p>
             </div>
             <div class="product-filter">
-                <form method="GET">
-                    <select name="sort" id="sortSelect" onchange="this.form.submit()">
-                        <option value="">Релевантность</option>
-                        <option value="cheap" {{ request('sort') == 'cheap' ? 'selected' : '' }}>Сначала дешевые</option>
-                        <option value="expensive" {{ request('sort') == 'expensive' ? 'selected' : '' }}>Сначала дорогие
-                        </option>
-                        <option value="alphabet" {{ request('sort') == 'alphabet' ? 'selected' : '' }}>По алфавиту</option>
-                    </select>
-                </form>
-            </div>
+    <form method="GET" id="filterForm">
+        <select class="filter-select" name="sort" id="sortSelect" onchange="this.form.submit()">
+            <option value="">Релевантность</option>
+            <option value="cheap" {{ request('sort') == 'cheap' ? 'selected' : '' }}>Сначала дешевые</option>
+            <option value="expensive" {{ request('sort') == 'expensive' ? 'selected' : '' }}>Сначала дорогие</option>
+            <option value="alphabet" {{ request('sort') == 'alphabet' ? 'selected' : '' }}>По алфавиту</option>
+        </select>
+    </form>
+</div>
+
         </div>
 
         <div class="catalog">

@@ -358,35 +358,53 @@
         </div>
     </div>
 
-
-<div class="container">
+    <div class="container">
     <div class="features-section">
         <div class="feature-box">
             <i class="fas fa-truck"></i>
-            <p><strong>Оперативная доставка:</strong><br>Доставляем по Алматы и Казахстану. Упаковываем качественно и с любовью.</p>
+            <p>
+                <strong>{{ __('messages.delivery.title') }}</strong><br>
+                {{ __('messages.delivery.description') }}
+            </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-shield-alt"></i>
-            <p><strong>Гарантия на товар:</strong><br>Предоставляем гарантию на приобретенные в нашем магазине товары.</p>
+            <p>
+                <strong>{{ __('messages.warranty.title') }}</strong><br>
+                {{ __('messages.warranty.description') }}
+            </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-globe"></i>
-            <p><strong>Прямые поставки:</strong><br>Сотрудничаем с поставщиками из разных стран и выбираем только лучший товар.</p>
+            <p>
+                <strong>{{ __('messages.direct_supplies.title') }}</strong><br>
+                {{ __('messages.direct_supplies.description') }}
+            </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-credit-card"></i>
-            <p><strong>Рассрочка на товары:</strong><br>Предоставляем беспроцентную рассрочку, кредит или KASPI RED.</p>
+            <p>
+                <strong>{{ __('messages.installment.title') }}</strong><br>
+                {{ __('messages.installment.description') }}
+            </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-calendar-check"></i>
-            <p><strong>Работаем с 2019 года:</strong><br>Наши менеджеры помогут с выбором товаров и грамотно проконсультируют.</p>
+            <p>
+                <strong>{{ __('messages.experience.title') }}</strong><br>
+                {{ __('messages.experience.description') }}
+            </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-box"></i>
-            <p><strong>Отправили более 3000 заказов:</strong><br>Сотни довольных клиентов. Мы заботимся о нашей репутации.</p>
+            <p>
+                <strong>{{ __('messages.orders_sent.title') }}</strong><br>
+                {{ __('messages.orders_sent.description') }}
+            </p>
         </div>
     </div>
 </div>
+
 
 
     <script type="application/ld+json">

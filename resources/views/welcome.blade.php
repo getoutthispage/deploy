@@ -174,3 +174,12 @@
         </div>
     </body>
 </html>
+
+
+<!--         @if(auth()->check() && auth()->user()->is_admin)
+            <div class="admin-console-link">
+                <a href="{{ route('admin.console') }}">Консоль</a>
+            </div>
+        @endif
+        
+        -->

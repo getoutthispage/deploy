@@ -1,75 +1,65 @@
 <?php
-
-use App\Http\Controllers\AboutPageController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\DeliveryPageController;
-use App\Http\Controllers\FeedbackPageController;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\SitemapController;
-use App\Http\Controllers\SocialProgramPageController;
-use App\Http\Controllers\WarrantyPageController;
-use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session; // Импортируем Session
+use App\Http\Controllers\{
+    AboutPageController,
+    CartController,
+    CatalogController,
+    DeliveryPageController,
+    FeedbackPageController,
+    IndexController,
+    ProductController,
+    SearchController,
+    SitemapController,
+    SocialProgramPageController,
+    WarrantyPageController
+};
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Middleware\AdminMiddleware;
 
-Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
+// Локализованные маршруты (ru/kz/en)
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localization']], function () {
 
-// INDEX PAGE
-Route::get('/', [IndexController::class, 'index'])->name('home');
-
-
-// PRODUCT PAGE
-Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
-
-// Category page
-Route::get('/shop/{slug1}/{slug2?}/{slug3?}', [CatalogController::class, 'show'])->name('category.show');
-
-// Cart page
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-
-// Delivery page
-Route::get('/delivery', [DeliveryPageController::class, 'index'])->name('delivery');
-// About us page
-Route::get('/about', [AboutPageController::class, 'index'])->name('about');
-// feedback page
-Route::get('/feedback', [FeedbackPageController::class, 'index'])->name('feedback');
-// warranty page
-Route::get('/warranty', [WarrantyPageController::class, 'index'])->name('warranty');
-// social program page
-Route::get('/social-program', [SocialProgramPageController::class, 'index'])->name('social-program');
-
-Route::get('/search', [SearchController::class, 'search'])->name('search');
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-
-
-
-Route::middleware(['auth', AdminMiddleware::class])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-});
-
-
-// lang
-
-Route::group(['prefix' => LaravelLocalization::setLocale()], function() {
+    // Главная страница
     Route::get('/', [IndexController::class, 'index'])->name('home');
+
+    // Продуктовая страница
     Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+    // Категории
+    Route::get('/shop/{slug1}/{slug2?}/{slug3?}', [CatalogController::class, 'show'])->name('category.show');
+
+    // Корзина
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    // Инфо страницы
+    Route::get('/delivery', [DeliveryPageController::class, 'index'])->name('delivery');
+    Route::get('/about', [AboutPageController::class, 'index'])->name('about');
+    Route::get('/feedback', [FeedbackPageController::class, 'index'])->name('feedback');
+    Route::get('/warranty', [WarrantyPageController::class, 'index'])->name('warranty');
+    Route::get('/social-program', [SocialProgramPageController::class, 'index'])->name('social-program');
+
+    // Поиск
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+    ])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+    });
+    // В файле routes/web.php
+    Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
+        Route::get('/admin/console', function () {
+            return view('admin.console'); // Убедитесь, что этот шаблон существует
+        })->name('admin.console');
+    });
+
+
+
 });
