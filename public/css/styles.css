@@ -30,13 +30,11 @@ img {
 
 h1 {
     text-transform: uppercase;
-    font: 500 20px/40px "Fixel Text Medium", sans-serif;
+    font: 500 32px/40px "Fixel Text Medium", sans-serif;
     position: relative;
     margin: 96px 104px 32px;
     color: #212121;
     text-align: center;
-    font-size: 32px; /* Установите фиксированный размер шрифта */
-    line-height: 40px; /* Задайте фиксированное значение line-height */
 }
 
 li {
