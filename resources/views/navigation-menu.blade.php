@@ -13,7 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <i class="fa fa-home"></i>
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.console') }}" :active="request()->routeIs('admin.console')">
+                    <i class="fas fa-terminal"></i>
                     </x-nav-link>
                 </div>
             </div>

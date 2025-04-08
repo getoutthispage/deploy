@@ -434,3 +434,6 @@
                                                           }
                                                         </script>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/swiper-bundle.min.js') }}" defer></script>
+@endpush

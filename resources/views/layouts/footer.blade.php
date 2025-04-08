@@ -57,9 +57,9 @@
 </footer>
 
 <div id="custom-alert" class="custom-alert" style="display: none;"></div>
+@stack('scripts')
 
-<script src="{{ asset('js/swiper-bundle.min.js') }}" defer></script>
-<script src="{{asset('js/main.js')}}" defer></script>
+<script src="{{asset('js/main.js')}}" defer></script> 
 </body>
 
 </html>
