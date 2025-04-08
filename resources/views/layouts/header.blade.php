@@ -148,7 +148,7 @@
                     </div>
 
                     <a href="{{ route('home') }}" class="logo">
-                        <img src="{{ asset('images/logo-indigoshop.webp')  }}" alt="logo">
+                        <img style="width:188px;heigh:55px;" src="{{ asset('images/logo-indigoshop.webp')  }}" alt="logo">
                     </a>
                     <div class="middle-icons">
 
