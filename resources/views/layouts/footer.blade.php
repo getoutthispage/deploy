@@ -6,24 +6,24 @@
             </a>
             <div class="footer__top-inner">
                 <div class="footer__top-item">
-                    <h6 class="footer__top-title">{{ __('messages.footer.shop_title') }}</h6>
+                    <h6 class="footer__top-title">Интернет-магазин</h6>
                     <ul class="footer-list">
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'accessories') }}">{{ __('messages.footer.accessories') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'everything-for-colorists') }}">{{ __('messages.footer.everything_for_colorists') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'everything-for-hairdressers') }}">{{ __('messages.footer.everything_for_hairdressers') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'hair-care') }}">{{ __('messages.footer.hair_care') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'сonsumables') }}">{{ __('messages.footer.consumables') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('category.show', 'tweezers') }}">{{ __('messages.footer.manicure_tools') }}</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'accessories') }}">Аксессуары</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'everything-for-colorists') }}">Все для колористов</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'everything-for-hairdressers') }}">Все для парикмахеров</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'hair-care') }}">Уход за волосами</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'сonsumables') }}">Расходные материалы</a></li>
+                        <li class="footer-list__item"><a href="{{ route('category.show', 'tweezers') }}">Маникюрный инструмент</a></li>
                     </ul>
                 </div>
                 <div class="footer__top-item">
-                    <h6 class="footer__top-title">{{ __('messages.footer.info_title') }}</h6>
+                    <h6 class="footer__top-title">Информация</h6>
                     <ul class="footer-list">
-                        <li class="footer-list__item"><a href="{{ route('delivery') }}">{{ __('messages.footer.delivery_and_payment') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('about') }}">{{ __('messages.footer.about') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('feedback') }}">{{ __('messages.footer.contacts') }}</a></li>
-                        <li class="footer-list__item"><a href="{{ route('warranty') }}">{{ __('messages.footer.warranty') }}</a></li>
-                        <li class="footer-list__item"><a style="color: #B1192E;" href="{{ route('social-program') }}">{{ __('messages.footer.social-program') }}</a></li>
+                        <li class="footer-list__item"><a href="{{ route('delivery') }}">Доставка и оплата</a></li>
+                        <li class="footer-list__item"><a href="{{ route('about') }}">О нас</a></li>
+                        <li class="footer-list__item"><a href="{{ route('feedback') }}">Контакты</a></li>
+                        <li class="footer-list__item"><a href="{{ route('warranty') }}">Обмен и гарантия</a></li>
+                        <li class="footer-list__item"><a style="color: #B1192E;" href="{{ route('social-program') }}">Наша Социальная программа</a></li>
 
                     </ul>
                 </div>
@@ -35,14 +35,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <div class="">
-                <p style="color:#fff; margin: 0; font-size: 14px;">{{ __('messages.footer.change_language') }}</p>
-                <select onchange="location = this.value;">
-                    <option style="color:black" value="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL('ru') }}" {{ App::getLocale() == 'ru' ? 'selected' : '' }}>Русский</option>
-                    <option style="color:black" value="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL('kk') }}" {{ App::getLocale() == 'kk' ? 'selected' : '' }}>Қазақша</option>
-                </select>
-            </div>
-            <p style="color:#fff; margin: 0; font-size: 14px;">© 2025 INDIGOSHOP - {{ __('messages.footer.rights_reserved') }}</p>
+            <p style="color:#fff; margin: 0; font-size: 14px;">© 2025 INDIGOSHOP - Все права защищены</p>
             <a class="footer__bottom-link" href="tel:+77089739330">8 708 973 93 30</a>
             <a class="footer__bottom-link" href="https://go.2gis.com/OSkNz">Алматы, Гагарина 186/1</a>
             <div class="payment-methods">

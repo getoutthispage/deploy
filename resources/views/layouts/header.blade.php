@@ -54,22 +54,22 @@
             <div class="header-inner">
                 <div class="header-top">
                     <div class="header-top-box">
-                    <a href="https://pokhlebaeva.pro/" class="school-link">{{ __('messages.links.training') }}</a>
+                    <a href="https://pokhlebaeva.pro/" class="school-link">Обучение</a>
                     <ul class="header-top-list">
                             <li class="header-top-list__item"><a
-                                    href="{{ route('delivery') }}">{{ __('messages.menu.delivery') }}</a></li>
+                                    href="{{ route('delivery') }}">Доставка и оплата</a></li>
                             <li class="header-top-list__item"><a
-                                    href="{{ route('about') }}">{{ __('messages.menu.about') }}</a></li>
+                                    href="{{ route('about') }}">О магазине</a></li>
                             <li class="header-top-list__item"><a
-                                    href="{{ route('feedback') }}">{{ __('messages.menu.contacts') }}</a></li>
+                                    href="{{ route('feedback') }}">Контакты</a></li>
                             <li class="header-top-list__item"><a
-                                    href="{{ route('warranty') }}">{{ __('messages.menu.warranty') }}</a></li>
+                                    href="{{ route('warranty') }}">Гарантия</a></li>
                                     <li class="header-top-list__item"><a style="color: #B1192E;"
-                                    href="{{ route('social-program') }}">{{ __('messages.menu.social-program') }}</a></li>
+                                    href="{{ route('social-program') }}">Наша Социальная программа</a></li>
                         </ul>
                         </ul>
                         <a class="header-top-inst" href="https://www.instagram.com/indigoshop.kz/?hl=en">
-    {{ __('messages.links.instagram') }} <i class="fa-brands fa-instagram"></i>
+                        Наш инстаграм <i class="fa-brands fa-instagram"></i>
 </a>
                     </div>
 
@@ -83,52 +83,52 @@
                     <nav class="mobile-menu">
                         <button class="close-menu">&times;</button>
                         <ul class="mobile-menu-list">
-                            <li><a style="color: #ff5252;" href="{{ route('home') }}">{{ __('messages.menu.home') }}</a>
+                            <li><a style="color: #ff5252;" href="{{ route('home') }}">Главная</a>
                             </li>
                             <li><a style="color: #ff5252;"
-                                    href="{{ route('delivery') }}">{{ __('messages.menu.delivery') }}</a></li>
+                                    href="{{ route('delivery') }}">Доставка и оплата</a></li>
                             <li><a style="color: #ff5252;"
-                                    href="{{ route('about') }}">{{ __('messages.menu.about') }}</a></li>
+                                    href="{{ route('about') }}">О магазине</a></li>
                             <li><a style="color: #ff5252;"
-                                    href="{{ route('feedback') }}">{{ __('messages.menu.contacts') }}</a></li>
+                                    href="{{ route('feedback') }}">Контакты</a></li>
                             <li><a style="color: #ff5252;"
-                                    href="{{ route('warranty') }}">{{ __('messages.menu.warranty') }}</a></li>
+                                    href="{{ route('warranty') }}">Гарантия</a></li>
                             <li class="mobile-menu-list-line"></li>
                             <li><a style="color: #ff5252;"
-                                    href="{{ route('social-program') }}">{{ __('messages.menu.social-program') }}</a></li>
+                                    href="{{ route('social-program') }}">Наша Социальная программа</a></li>
                             <li class="mobile-menu-list-line"></li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-hairdressers/machines') }}">{{ __('messages.categories.machines') }}</a>
+                                    href="{{ url('/shop/everything-for-hairdressers/machines') }}">Машинки</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-hairdressers/scissors') }}">{{ __('messages.categories.scissors') }}</a>
+                                    href="{{ url('/shop/everything-for-hairdressers/scissors') }}">Ножницы</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-hairdressers/curling-irons-straighteners') }}">{{ __('messages.categories.curlers') }}</a>
+                                    href="{{ url('/shop/everything-for-hairdressers/curling-irons-straighteners') }}">Плойки</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-hairdressers/combs') }}">{{ __('messages.categories.combs') }}</a>
+                                    href="{{ url('/shop/everything-for-hairdressers/combs') }}">Расчески</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">{{ __('messages.categories.hairdryers') }}</a>
+                                    href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">Фены</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/accessories') }}">{{ __('messages.categories.accessories') }}</a>
+                                    href="{{ url('/shop/accessories') }}">Аксессуары</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-colorists/tablets-thermal-paper-scales') }}">{{ __('messages.categories.tablets') }}</a>
+                                    href="{{ url('/shop/everything-for-colorists/tablets-thermal-paper-scales') }}">Планшеты</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/everything-for-colorists/cups') }}">{{ __('messages.categories.cups') }}</a>
+                                    href="{{ url('/shop/everything-for-colorists/cups') }}">Чашки</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/accessories/rugs-coasters') }}">{{ __('messages.categories.mats') }}</a>
+                                    href="{{ url('/shop/accessories/rugs-coasters') }}">Коврики</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/consumables') }}">{{ __('messages.categories.consumables') }}</a>
+                                    href="{{ url('/shop/consumables') }}">Расходники</a>
                             </li>
                             <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/hair-care') }}">{{ __('messages.categories.hair_care') }}</a>
+                                    href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
                             </li>
 
                             <li class="mobile-menu-list-line"></li>
@@ -177,47 +177,47 @@
                     <ul class="menu-categories">
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-hairdressers/machines') }}">{{ __('messages.categories.machines') }}</a>
+                                href="{{ url('/shop/everything-for-hairdressers/machines') }}">Машинки</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-hairdressers/scissors') }}">{{ __('messages.categories.scissors') }}</a>
+                                href="{{ url('/shop/everything-for-hairdressers/scissors') }}">Ножницы</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-hairdressers/curling-irons-straighteners') }}">{{ __('messages.categories.curlers') }}</a>
+                                href="{{ url('/shop/everything-for-hairdressers/curling-irons-straighteners') }}">Плойки</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-hairdressers/combs') }}">{{ __('messages.categories.combs') }}</a>
+                                href="{{ url('/shop/everything-for-hairdressers/combs') }}">Расчески</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">{{ __('messages.categories.hairdryers') }}</a>
+                                href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">Фены</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/accessories') }}">{{ __('messages.categories.accessories') }}</a>
+                                href="{{ url('/shop/accessories') }}">Аксессуары</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-colorists/tablets-thermal-paper-scales') }}">{{ __('messages.categories.tablets') }}</a>
+                                href="{{ url('/shop/everything-for-colorists/tablets-thermal-paper-scales') }}">Планшеты</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/everything-for-colorists/cups') }}">{{ __('messages.categories.cups') }}</a>
+                                href="{{ url('/shop/everything-for-colorists/cups') }}">Чашки</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/accessories/rugs-coasters') }}">{{ __('messages.categories.mats') }}</a>
+                                href="{{ url('/shop/accessories/rugs-coasters') }}">Коврики</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/consumables') }}">{{ __('messages.categories.consumables') }}</a>
+                                href="{{ url('/shop/consumables') }}">Расходники</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
-                                href="{{ url('/shop/hair-care') }}">{{ __('messages.categories.hair_care') }}</a>
+                                href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
                         </li>
                     </ul>
 

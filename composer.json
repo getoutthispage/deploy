@@ -15,8 +15,7 @@
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.0",
-        "mcamara/laravel-localization": "^2.3"
+        "livewire/livewire": "^3.0"
     },
     "require-dev": {
         "laravel/pail": "^1.1",

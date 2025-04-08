@@ -38,7 +38,7 @@
     </section>
     <section class="products-container">
         <div class="container">
-            <h1>{{ __('messages.welcome') }}</h1>
+            <h1>Качественные инструменты для парикмахеров и барберов в Алматы</h1>
             <div class="working-machines-swiper swiper-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -173,7 +173,7 @@
     </section>
     <section class="categories-section">
         <div class="container">
-            <h2>{{ __('messages.Vse_dlya_p_b') }}</h2>
+            <h2>Все для парикмахера и барбера</h2>
             <div class="categories__inner">
                 @foreach($categories as $category)
                     <a class="categories__item" href="{{ route('category.show', $category->slug) }}">
@@ -191,7 +191,6 @@
     </section>
     <section class="banner-item">
         <div class="container">
-            <h2>{{ __('messages.Vse_dlya_p_b') }}</h2>
             <div class="banner-swiper swiper-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><a href="{{route('delivery')}}"> <img class="banner-img_item"
@@ -205,7 +204,7 @@
     </section>
     <section class="products-container">
         <div class="container">
-            <h2>{{ __('messages.popular_hair_dries') }}</h2>
+            <h2>Наши популярные фены</h2>
             <div class="working-machines-swiper swiper-hidden">
                 <div class="swiper-wrapper">
                     @foreach ($products as $product)
@@ -241,7 +240,7 @@
     </section>
     <section class="banner-item">
         <div class="container">
-            <h2 class="otziv">{{ __('messages.customer_reviews') }}</h2>
+            <h2 class="otziv">Отзывы наших покупателей</h2>
             <div class="review-swiper  swiper-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -295,7 +294,7 @@
     </section>
     <section class="products-container">
         <div class="container">
-            <h2>{{ __('messages.partner_brands') }}</h2>
+            <h2>Бренды с которыми мы сотрудничаем</h2>
             <div class="working-machines-swiper swiper-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -348,7 +347,7 @@
 
     <div class="container" style="  display: flex;justify-content: center;">
         <div class="video-section">
-            <h2>{{ __('messages.youtube_channel') }}л</h2>
+            <h2>Наш YouTube канал</h2>
             <a href="https://www.youtube.com/@indigobeauty4298" target="_blank" class="video-banner">
                 <video muted loop playsinline controls>
                     <source src="{{ asset('images/video/youtube-insigoshop.mp4') }}" type="video/mp4">
@@ -363,43 +362,43 @@
         <div class="feature-box">
             <i class="fas fa-truck"></i>
             <p>
-                <strong>{{ __('messages.delivery.title') }}</strong><br>
-                {{ __('messages.delivery.description') }}
+                <strong>Оперативная доставка:</strong><br>
+                Доставляем по Алматы и Казахстану. Упаковываем качественно и с любовью.
             </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-shield-alt"></i>
             <p>
-                <strong>{{ __('messages.warranty.title') }}</strong><br>
-                {{ __('messages.warranty.description') }}
+                <strong>Гарантия на товар:</strong><br>
+                Предоставляем гарантию на приобретенные в нашем магазине товары.
             </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-globe"></i>
             <p>
-                <strong>{{ __('messages.direct_supplies.title') }}</strong><br>
-                {{ __('messages.direct_supplies.description') }}
+                <strong>Прямые поставки:</strong><br>
+                Сотрудничаем с поставщиками из разных стран и выбираем только лучший товар.
             </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-credit-card"></i>
             <p>
-                <strong>{{ __('messages.installment.title') }}</strong><br>
-                {{ __('messages.installment.description') }}
+                <strong>Рассрочка на товары:</strong><br>
+                Предоставляем беспроцентную рассрочку, кредит или KASPI RED.
             </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-calendar-check"></i>
             <p>
-                <strong>{{ __('messages.experience.title') }}</strong><br>
-                {{ __('messages.experience.description') }}
+                <strong>Работаем с 2019 года:</strong><br>
+                Наши менеджеры помогут с выбором товаров и грамотно проконсультируют.
             </p>
         </div>
         <div class="feature-box">
             <i class="fas fa-box"></i>
             <p>
-                <strong>{{ __('messages.orders_sent.title') }}</strong><br>
-                {{ __('messages.orders_sent.description') }}
+                <strong>Отправили более 3000 заказов:</strong><br>
+                Сотни довольных клиентов. Мы заботимся о нашей репутации.
             </p>
         </div>
     </div>
