@@ -18,9 +18,8 @@ use App\Http\Middleware\AdminMiddleware;
 // Sitemap
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
-
 // Главная страница
-Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get(uri: '/', [IndexController::class, 'index'])->name('home');
 
 // Продуктовая страница
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
@@ -41,6 +40,7 @@ Route::get('/social-program', [SocialProgramPageController::class, 'index'])->na
 // Поиск
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
+// auth
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -50,10 +50,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-// В файле routes/web.php
+
+// admin panel
 Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
     Route::get('/admin/console', function () {
-        return view('admin.console'); // Убедитесь, что этот шаблон существует
+        return view('admin.console');
     })->name('admin.console');
 });
 

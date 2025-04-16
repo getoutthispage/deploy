@@ -9,8 +9,6 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* FEATURES SECTION  */
-
     .features-section {
         grid-template-columns: 1fr;
     }
@@ -26,7 +24,7 @@
     .feature-box p {
         font-size: 0.95rem;
     }
-    /* INDEX */
+
     .product-card img {
         width: 150px;
         height: 150px;
@@ -76,26 +74,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* Разносит элементы по краям */
         width: 100%;
     }
 
-    /* video */
     .video-section {
         width: 100%;
-        /* Делаем блок на всю ширину экрана */
     }
 
-    /* PRODUCT PAGE */
     .product-page__wrapper {
         flex-direction: column;
-        /* Меняем направление на столбец */
     }
 
-    /* CART PAGE */
     .cart-page__wrapper {
         flex-direction: column;
-        /* Меняем направление на столбец */
         margin-bottom: 20px;
     }
 
@@ -112,19 +103,15 @@
         width: 100%;
     }
 
-    /* PRODUCT PAGE */
     .product-page__image,
     .product-page__content {
         width: 100%;
-        /* Задаем ширину 100% для обоих элементов */
     }
 
-    /* SEARCH */
     .search-close {
         left: 0;
     }
 
-    /* BURGER */
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -168,7 +155,6 @@
 
     .mobile-menu-list li {
         font: 500 26px/40px "Fixel Text Medium", sans-serif;
-
         margin: 10px;
     }
 
@@ -189,7 +175,6 @@
 
     .mobile-menu-list-line {
         border-bottom: 1px solid #ebebeb;
-
     }
 
     .close-menu:hover {
@@ -200,13 +185,10 @@
         display: none;
     }
 
-
-    /* CART PAGE */
     .radio-group label span {
         font-size: 12px;
     }
 
-    /* catalog-info */
     .catalog-info {
         border-bottom: 1px solid #e6ebf0;
         border-top: 1px solid #e6ebf0;

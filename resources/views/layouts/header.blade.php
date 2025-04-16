@@ -54,23 +54,20 @@
             <div class="header-inner">
                 <div class="header-top">
                     <div class="header-top-box">
-                    <a href="https://pokhlebaeva.pro/" class="school-link">Обучение</a>
-                    <ul class="header-top-list">
-                            <li class="header-top-list__item"><a
-                                    href="{{ route('delivery') }}">Доставка и оплата</a></li>
-                            <li class="header-top-list__item"><a
-                                    href="{{ route('about') }}">О магазине</a></li>
-                            <li class="header-top-list__item"><a
-                                    href="{{ route('feedback') }}">Контакты</a></li>
-                            <li class="header-top-list__item"><a
-                                    href="{{ route('warranty') }}">Гарантия</a></li>
-                                    <li class="header-top-list__item"><a style="color: #B1192E;"
+                        <a href="https://pokhlebaeva.pro/" class="school-link">Обучение</a>
+                        <ul class="header-top-list">
+                            <li class="header-top-list__item"><a href="{{ route('delivery') }}">Доставка и оплата</a>
+                            </li>
+                            <li class="header-top-list__item"><a href="{{ route('about') }}">О магазине</a></li>
+                            <li class="header-top-list__item"><a href="{{ route('feedback') }}">Контакты</a></li>
+                            <li class="header-top-list__item"><a href="{{ route('warranty') }}">Гарантия</a></li>
+                            <li class="header-top-list__item"><a style="color: #B1192E;"
                                     href="{{ route('social-program') }}">Наша Социальная программа</a></li>
                         </ul>
                         </ul>
                         <a class="header-top-inst" href="https://www.instagram.com/indigoshop.kz/?hl=en">
-                        Наш инстаграм <i class="fa-brands fa-instagram"></i>
-</a>
+                            Наш инстаграм <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -85,17 +82,13 @@
                         <ul class="mobile-menu-list">
                             <li><a style="color: #ff5252;" href="{{ route('home') }}">Главная</a>
                             </li>
-                            <li><a style="color: #ff5252;"
-                                    href="{{ route('delivery') }}">Доставка и оплата</a></li>
-                            <li><a style="color: #ff5252;"
-                                    href="{{ route('about') }}">О магазине</a></li>
-                            <li><a style="color: #ff5252;"
-                                    href="{{ route('feedback') }}">Контакты</a></li>
-                            <li><a style="color: #ff5252;"
-                                    href="{{ route('warranty') }}">Гарантия</a></li>
+                            <li><a style="color: #ff5252;" href="{{ route('delivery') }}">Доставка и оплата</a></li>
+                            <li><a style="color: #ff5252;" href="{{ route('about') }}">О магазине</a></li>
+                            <li><a style="color: #ff5252;" href="{{ route('feedback') }}">Контакты</a></li>
+                            <li><a style="color: #ff5252;" href="{{ route('warranty') }}">Гарантия</a></li>
                             <li class="mobile-menu-list-line"></li>
-                            <li><a style="color: #ff5252;"
-                                    href="{{ route('social-program') }}">Наша Социальная программа</a></li>
+                            <li><a style="color: #ff5252;" href="{{ route('social-program') }}">Наша Социальная
+                                    программа</a></li>
                             <li class="mobile-menu-list-line"></li>
                             <li><a style="font-size: 20px;"
                                     href="{{ url('/shop/everything-for-hairdressers/machines') }}">Машинки</a>
@@ -112,8 +105,7 @@
                             <li><a style="font-size: 20px;"
                                     href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">Фены</a>
                             </li>
-                            <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/accessories') }}">Аксессуары</a>
+                            <li><a style="font-size: 20px;" href="{{ url('/shop/accessories') }}">Аксессуары</a>
                             </li>
                             <li><a style="font-size: 20px;"
                                     href="{{ url('/shop/everything-for-colorists/tablets-thermal-paper-scales') }}">Планшеты</a>
@@ -124,11 +116,9 @@
                             <li><a style="font-size: 20px;"
                                     href="{{ url('/shop/accessories/rugs-coasters') }}">Коврики</a>
                             </li>
-                            <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/consumables') }}">Расходники</a>
+                            <li><a style="font-size: 20px;" href="{{ url('/shop/consumables') }}">Расходники</a>
                             </li>
-                            <li><a style="font-size: 20px;"
-                                    href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
+                            <li><a style="font-size: 20px;" href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
                             </li>
 
                             <li class="mobile-menu-list-line"></li>
@@ -148,7 +138,8 @@
                     </div>
 
                     <a href="{{ route('home') }}" class="logo">
-                        <img style="width:188px;heigh:55px;" src="{{ asset('images/logo-indigoshop.webp')  }}" alt="logo">
+                        <img style="width:188px;height:55px;" src="https://indigoshop.kz/images/logo-indigoshop.webp"
+                            alt="logo">
                     </a>
                     <div class="middle-icons">
 
@@ -196,8 +187,7 @@
                                 href="{{ url('/shop/everything-for-hairdressers/hairdryers') }}">Фены</a>
                         </li>
                         <li class="menu-categories__item">
-                            <a class="menu-categories__link"
-                                href="{{ url('/shop/accessories') }}">Аксессуары</a>
+                            <a class="menu-categories__link" href="{{ url('/shop/accessories') }}">Аксессуары</a>
                         </li>
                         <li class="menu-categories__item">
                             <a class="menu-categories__link"
@@ -212,12 +202,10 @@
                                 href="{{ url('/shop/accessories/rugs-coasters') }}">Коврики</a>
                         </li>
                         <li class="menu-categories__item">
-                            <a class="menu-categories__link"
-                                href="{{ url('/shop/consumables') }}">Расходники</a>
+                            <a class="menu-categories__link" href="{{ url('/shop/consumables') }}">Расходники</a>
                         </li>
                         <li class="menu-categories__item">
-                            <a class="menu-categories__link"
-                                href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
+                            <a class="menu-categories__link" href="{{ url('/shop/hair-care') }}">Уход за волосами</a>
                         </li>
                     </ul>
 

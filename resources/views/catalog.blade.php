@@ -14,15 +14,16 @@
                 <p>Показано товаров: {{ count($products) }}</p>
             </div>
             <div class="product-filter">
-    <form method="GET" id="filterForm">
-        <select class="filter-select" name="sort" id="sortSelect" onchange="this.form.submit()">
-            <option value="">Релевантность</option>
-            <option value="cheap" {{ request('sort') == 'cheap' ? 'selected' : '' }}>Сначала дешевые</option>
-            <option value="expensive" {{ request('sort') == 'expensive' ? 'selected' : '' }}>Сначала дорогие</option>
-            <option value="alphabet" {{ request('sort') == 'alphabet' ? 'selected' : '' }}>По алфавиту</option>
-        </select>
-    </form>
-</div>
+                <form method="GET" id="filterForm">
+                    <select class="filter-select" name="sort" id="sortSelect" onchange="this.form.submit()">
+                        <option value="">Релевантность</option>
+                        <option value="cheap" {{ request('sort') == 'cheap' ? 'selected' : '' }}>Сначала дешевые</option>
+                        <option value="expensive" {{ request('sort') == 'expensive' ? 'selected' : '' }}>Сначала дорогие
+                        </option>
+                        <option value="alphabet" {{ request('sort') == 'alphabet' ? 'selected' : '' }}>По алфавиту</option>
+                    </select>
+                </form>
+            </div>
 
         </div>
 
@@ -62,72 +63,75 @@
         </div>
 
         <div class="pagination">
-    <ul class="pagination-list">
-        {{-- Кнопка "назад" --}}
-        <li class="pagination-list__item {{ $products->onFirstPage() ? 'disabled' : '' }}">
-            <a href="{{ $products->previousPageUrl() . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}"
-                aria-label="Previous">«</a>
-        </li>
+            <ul class="pagination-list">
+                {{-- Кнопка "назад" --}}
+                <li class="pagination-list__item {{ $products->onFirstPage() ? 'disabled' : '' }}">
+                    <a href="{{ $products->previousPageUrl() . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}"
+                        aria-label="Previous">«</a>
+                </li>
 
-        {{-- Первая страница --}}
-        <li class="pagination-list__item {{ $products->currentPage() == 1 ? 'active' : '' }}">
-            <a href="{{ $products->url(1) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">1</a>
-        </li>
+                {{-- Первая страница --}}
+                <li class="pagination-list__item {{ $products->currentPage() == 1 ? 'active' : '' }}">
+                    <a
+                        href="{{ $products->url(1) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">1</a>
+                </li>
 
-        {{-- Текущая страница (если это не 1 и не последняя) --}}
-        @if ($products->currentPage() > 1 && $products->currentPage() < $products->lastPage())
-            <li class="pagination-list__item active">
-                <a href="{{ $products->url($products->currentPage()) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">
-                    {{ $products->currentPage() }}
-                </a>
-            </li>
-        @endif
+                {{-- Текущая страница (если это не 1 и не последняя) --}}
+                @if ($products->currentPage() > 1 && $products->currentPage() < $products->lastPage())
+                    <li class="pagination-list__item active">
+                        <a
+                            href="{{ $products->url($products->currentPage()) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">
+                            {{ $products->currentPage() }}
+                        </a>
+                    </li>
+                @endif
 
-        {{-- Последняя страница --}}
-        @if ($products->lastPage() > 1)
-            <li class="pagination-list__item {{ $products->currentPage() == $products->lastPage() ? 'active' : '' }}">
-                <a href="{{ $products->url($products->lastPage()) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">
-                    {{ $products->lastPage() }}
-                </a>
-            </li>
-        @endif
+                {{-- Последняя страница --}}
+                @if ($products->lastPage() > 1)
+                    <li class="pagination-list__item {{ $products->currentPage() == $products->lastPage() ? 'active' : '' }}">
+                        <a
+                            href="{{ $products->url($products->lastPage()) . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}">
+                            {{ $products->lastPage() }}
+                        </a>
+                    </li>
+                @endif
 
-        {{-- Кнопка "вперед" --}}
-        <li class="pagination-list__item {{ $products->hasMorePages() ? '' : 'disabled' }}">
-            <a href="{{ $products->nextPageUrl() . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}"
-                aria-label="Next">»</a>
-        </li>
-    </ul>
-</div>
+                {{-- Кнопка "вперед" --}}
+                <li class="pagination-list__item {{ $products->hasMorePages() ? '' : 'disabled' }}">
+                    <a href="{{ $products->nextPageUrl() . (request()->except('page') ? '&' . http_build_query(request()->except('page')) : '') }}"
+                        aria-label="Next">»</a>
+                </li>
+            </ul>
+        </div>
 
 
     </section>
 
     <script type="application/ld+json">
-                                                            {
-                                                              "@context": "https://schema.org",
-                                                              "@type": "BreadcrumbList",
-                                                              "@type": "ItemList",
-                                                              "name": "{{ $category->name }}",
-                                                      "itemListElement": [
-                                                            @foreach ($products as $index => $product)
-                                                                        {
-                                                                          "@type": "ListItem",
-                                                                          "position": {{ $index + 1 }},
-                                                                    "url": "{{ route('product.show', $product->slug) }}",
-                                                                    "name": "{{ $product->name }}",
-                                                                    "image": "{{ asset('storage/' . explode(',', $product->images)[0]) }}",
-                                                                    "offers": {
-                                                                      "@type": "Offer",
-                                                                      "priceCurrency": "KZT",
-                                                                      "price": "{{ $product->sale_price ?? $product->price }}",
-                                                                      "availability": "{{ $product->quantity ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}"
-                                                                    }
-                                                                  }@if(!$loop->last)
-                                                                    ,
-                                                                @endif
-                                                            @endforeach
-                                                            ]
-                                                          }
-                                                        </script>
+                                                                {
+                                                                  "@context": "https://schema.org",
+                                                                  "@type": "BreadcrumbList",
+                                                                  "@type": "ItemList",
+                                                                  "name": "{{ $category->name }}",
+                                                          "itemListElement": [
+                                                                @foreach ($products as $index => $product)
+                                                                            {
+                                                                              "@type": "ListItem",
+                                                                              "position": {{ $index + 1 }},
+                                                                        "url": "{{ route('product.show', $product->slug) }}",
+                                                                        "name": "{{ $product->name }}",
+                                                                        "image": "{{ asset('storage/' . explode(',', $product->images)[0]) }}",
+                                                                        "offers": {
+                                                                          "@type": "Offer",
+                                                                          "priceCurrency": "KZT",
+                                                                          "price": "{{ $product->sale_price ?? $product->price }}",
+                                                                          "availability": "{{ $product->quantity ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}"
+                                                                        }
+                                                                      }@if(!$loop->last)
+                                                                        ,
+                                                                    @endif
+                                                                @endforeach
+                                                                ]
+                                                              }
+                                                            </script>
 @endsection
