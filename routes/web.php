@@ -19,7 +19,7 @@ use App\Http\Middleware\AdminMiddleware;
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // Главная страница
-Route::get(uri: '/', [IndexController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
 // Продуктовая страница
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
